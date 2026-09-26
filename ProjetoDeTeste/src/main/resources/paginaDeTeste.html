@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script>(function(w,i,g){w[g]=w[g]||[];if(typeof w[g].push=='function')w[g].push(i)})
+(window,'GTM-TLQSKTW','google_tags_first_party');</script><script>(function(w,d,s,l){w[l]=w[l]||[];(function(){w[l].push(arguments);})('set', 'developer_id.dYzg1YT', true);
+    w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s);j.async=true;j.src='/analytics/';
+    f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer');</script>
+    <meta charset="UTF-8">
+    <title>Treinamento Automação</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script language="JavaScript">
+
+        function fazerCadastro() {
+
+
+
+            var estoqueMaximo = document.evaluate('/html/body/div/form/fieldset/div[5]/input', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.value;
+
+            var formaVenda = '';
+            var checkedFormaVenda = document.getElementsByName('formaVenda')
+            for(var i = 0; i < checkedFormaVenda.length; i++) {
+                if(checkedFormaVenda[i].checked == true){
+                    formaVenda  += ' ' + checkedFormaVenda[i].value + ' ';
+                }
+            }
+
+
+            var vendaImediata = '';
+            var checked = document.getElementsByName('venda')
+            for(var i = 0; i < checked.length; i++) {
+                if(checked[i].checked == true){
+                    vendaImediata  = checked[i].value + ' ';
+                }
+            }
+
+            var vendas = '';
+            var options = document.getElementById('venda').options;
+            for(var i = 0; i < options.length; i++) {
+                if(options[i].selected){
+                    vendas += ' ' + options[i].text + ' ';
+                }
+            }
+            var select = document.getElementById('categoria');
+            var value = select.options[select.selectedIndex].value;
+            document.getElementById('resultado').innerHTML =
+                "<span>Cadastrado!</span><br/>"
+                + "<div id='descNome'>Nome: " + document.getElementById('txt01').value + "</div>"
+                + "<div id='descCategoria'>Categoria:" + value + "</div>"
+                + "<div id='descCanais'>Canais de Venda:" + vendas + "</div>"
+                + "<div id='descMinimo'>Estoque Minimo: " + document.getElementById('txt02').value + "</div>"
+                + "<div id='descMaxima'>Estoque Máximo:" + estoqueMaximo + "</div>"
+                + "<div id='descMinimo'>Disponibilizar para venda imediata?: " + vendaImediata + "</div>"
+                + "<div id='descMinimo'>Formas de Venda: " + formaVenda + "</div>";
+
+
+        }
+
+
+
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Cadastro de Produto </h1>
+
+    <form>
+        <fieldset>
+            <!-- Buscar por id -->
+            <div class="form-group">
+                <label> Nome do Produto:</label>
+                <input type="text" class="form-control" id="txt01">
+            </div>
+            <div class="form-group">
+                <label> Categoria do Produto:</label>
+                <select id="categoria" class="form-control">
+                    <option value="alimento">Alimentos</option>
+                    <option value="higiene">Higiene</option>
+                    <option value="bazar">Bazar</option>
+                    <option value="confeccao">Confecção</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label> Canal de Venda:</label>
+                <select multiple id="venda" class="form-control">
+                    <option value="web">E-Commerce</option>
+                    <option value="loja">Loja Física</option>
+                    <option value="whatsapp">WhatsApp</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="telefone">Telefone</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label> Estoque Mínimo:</label>
+                <input type="number" class="form-control" id="txt02">
+            </div>
+            <div class="form-group">
+                <label> Estoque Máximo:</label>
+                <input type="number" class="form-control">
+            </div>
+        </fieldset>
+
+        <label>Disponibilizar para Venda Imediata:</label>
+        <div class="radio-inline">
+            <label for="sim"><input type="radio" id="sim" name="venda" value="sim">sim</label>
+        </div>
+        <div class="radio-inline">
+            <label for="nao"> <input type="radio" id="nao" name="venda" value="nao">não</label>
+        </div>
+        <br/>
+
+        <label> Forma de Venda:</label>
+
+        <div class="checkbox-inline">
+            <label><input type="checkbox" name="formaVenda" value="Unidade"> Unidade</label>
+        </div>
+        <div class="checkbox-inline">
+            <label><input type="checkbox" name="formaVenda" value="Caixa"> Caixa</label>
+        </div>
+        <div class="checkbox-inline">
+            <label><input type="checkbox" name="formaVenda" value="Pacote"> Pacote</label>
+        </div>
+        <div class="checkbox-inline">
+            <label><input type="checkbox" name="formaVenda" value="Duzia"> Dúzia</label>
+        </div>
+
+        <br/><br/>
+        <input id="elementosForm:cadastrar" type="button"
+               name="elementosForm:cadastrar" value="Cadastrar"
+               onclick="javascript:fazerCadastro()"/></td>
+
+        <input type="reset" value="limpar">
+
+
+    </form>
+
+    <div id="resultado">Status: Nao cadastrado</div>
+
+</div>
+<br/><br/><br/>
+<hr/>
+
+<br/>
+<text> Mais informações acesse:</text>
+<a href="https://www.google.com.br">google</a>
+<br/>
+<text> Se quiser ler notícias sobre empresas acesse:</text>
+<a href="https://gauchazh.clicrbs.com.br/ultimas-noticias/tag/empresas/">GZH Empresas</a>
+
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"85f979b02e20481d959ab994eb426b76","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
