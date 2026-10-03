@@ -14,7 +14,7 @@ public class BaseTest {
     @BeforeClass
     public void preCond(){
         url = System.getProperty("user.dir") +
-                "\\src\\main\\resources\\paginaDeTest.html";
+                "\\src\\main\\resources\\paginaDeTeste.html";
         driver = new EdgeDriver();
         driver.get( url );
         driver.manage().window().maximize();
