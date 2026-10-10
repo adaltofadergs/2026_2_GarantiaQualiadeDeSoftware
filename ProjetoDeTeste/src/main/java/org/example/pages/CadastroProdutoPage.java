@@ -86,12 +86,12 @@ public class CadastroProdutoPage extends BasePage{
         return this;
     }
 
-    public CadastroProdutoPage selecionarCanalVenda(String canal01, String canal02){
-        Select dropdown = new Select( selCanalVenda );
-        dropdown.selectByVisibleText( canal01);
-        dropdown.selectByVisibleText( canal02);
-        return this;
-    }
+//    public CadastroProdutoPage selecionarCanalVenda(String canal01, String canal02){
+//        Select dropdown = new Select( selCanalVenda );
+//        dropdown.selectByVisibleText( canal01);
+//        dropdown.selectByVisibleText( canal02);
+//        return this;
+//    }
 
     public CadastroProdutoPage selecionarCanalVenda(String... canais){
         Select dropdown = new Select( selCanalVenda );
